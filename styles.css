@@ -1,0 +1,12 @@
+body{
+    display: flex;
+    background-color: darkgrey;
+    font-family: 'Courier New', Courier, monospace;
+    color: aliceblue;
+}
+.game-container{
+    display: grid;
+    grid-template-columns:;
+    grid-template-rows: ;
+    
+}
