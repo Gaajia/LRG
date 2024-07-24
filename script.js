@@ -58,6 +58,5 @@ drawGrid();
 generateApple();
 drawApple();
 
-drawGrid();
 
 
