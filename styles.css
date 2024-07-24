@@ -1,17 +1,19 @@
 body {
-  /* background-color: darkgrey;
-  font-family: "Courier New", Courier, monospace;
-  color: aliceblue; */
+    display: flex;
+    background-color: darkgrey; 
+    font-family: "Courier New", Courier, monospace;
+    color: aliceblue; 
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    
 }
-#game-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr1fr 1fr;
-}
+
 
 #ourCanvas {
-  display: flex;
-  grid-area: 2/2;
-  border: black;
-
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  border: 1px solid black;
 }
