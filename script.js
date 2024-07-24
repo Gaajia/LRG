@@ -1,9 +1,11 @@
 const canvas = document.getElementById('ourCanvas')
 const ctx = canvas.getContext('2d')
-
 const gridSize = canvas.width / 6;
 const gridWidth = 6;
 const gridHeight = 6;
+let appleX, appleY;
+
+
 
 function drawGrid() {
     for(let i = 0; i <= gridWidth; i++){
@@ -19,6 +21,18 @@ function drawGrid() {
     ctx.stroke()
 }
 
+function generateApple(){
+    appleX = Math.floor(Math.random() * gridWidth) * gridSize;
+    appleY = Math.floor(Math.random() * gridHeight) * gridSize;
+}
+
+function drawApple(){
+    ctx.fillStyle = 'red';
+    ctx.fillRect(appleX,appleY,gridSize,gridSize)
+}
 
 
-drawGrid()
+drawGrid();
+generateApple();
+drawApple();
+
