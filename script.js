@@ -21,18 +21,6 @@ function drawGrid() {
     ctx.stroke()
 }
 
-function generateApple(){
-    appleX = Math.floor(Math.random() * gridWidth) * gridSize;
-    appleY = Math.floor(Math.random() * gridHeight) * gridSize;
-}
-
-function drawApple(){
-    ctx.fillStyle = 'red';
-    ctx.fillRect(appleX,appleY,gridSize,gridSize)
-}
-
-
 drawGrid();
-generateApple();
-drawApple();
+
 
