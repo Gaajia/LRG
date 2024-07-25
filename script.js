@@ -4,6 +4,8 @@ const gridSize = canvas.width / 6;
 const gridWidth = 6;
 const gridHeight = 6;
 let appleX, appleY;
+let simulatedSnakeX = 5 * gridSize;
+let simulatedSnakeY = 5 * gridSize;
 
 function drawGrid() {
     for(let i = 0; i <= gridWidth; i++){
@@ -29,10 +31,31 @@ function drawApple(){
     ctx.fillRect(appleX,appleY,gridSize,gridSize)
 }
 
+function createCollision(x,y){
+    if(x < 0 || x >= canvas.width || y < 0 || y >= canvas.height){
+        alert(`You've hit the wall! Try again!`);
+        return true
+    }
+    return false
+}
 
-drawGrid();
+function gameLoop(){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    drawGrid();
+    drawApple();
+    // this will be for the snake
+    const simulatedSnakeX = 2 * gridSize
+    const simulatedSnakeY = 2 * gridSize
+    createCollision(simulatedSnakeX,simulatedSnakeY)
+}
+
+
+
+if(createCollision(simulatedSnakeX,simulatedSnakeY)){
+    console.log('Collision detected at:', simulatedSnakeX, simulatedSnakeY)
+} else {
+    console.log("No collision detected", simulatedSnakeX, simulatedSnakeY)
+}
+
 generateApple();
-drawApple();
-
-
-
+setInterval(gameLoop,200)
