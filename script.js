@@ -6,6 +6,9 @@ const gridHeight = 6;
 let appleX, appleY;
 let simulatedSnakeX = 5 * gridSize;
 let simulatedSnakeY = 5 * gridSize;
+let snakeY = simulatedSnakeY;  // Initialize snakeY
+let snakeX = simulatedSnakeX;  // Initialize snakeX
+
 
 function drawGrid() {
     for(let i = 0; i <= gridWidth; i++){
@@ -18,7 +21,7 @@ function drawGrid() {
     }
 
     ctx.strokeStyle = 'black';
-    ctx.stroke()
+    ctx.stroke() 
 }
 
 function generateApple(){
@@ -30,6 +33,18 @@ function drawApple(){
     ctx.fillStyle = 'red';
     ctx.fillRect(appleX,appleY,gridSize,gridSize)
 }
+
+function drawSnake(){
+    ctx.fillStyle = 'blue';
+    ctx.fillRect(snakeX, snakeY, gridSize, gridSize);
+  
+    
+}
+
+// function moveS() = 
+
+
+
 
 function createCollision(x,y){
     if(x < 0 || x >= canvas.width || y < 0 || y >= canvas.height){
@@ -43,6 +58,7 @@ function gameLoop(){
     ctx.clearRect(0,0,canvas.width,canvas.height);
     drawGrid();
     drawApple();
+    drawSnake(); 
     // this will be for the snake
     const simulatedSnakeX = 2 * gridSize
     const simulatedSnakeY = 2 * gridSize
