@@ -1,8 +1,8 @@
 const canvas = document.getElementById('ourCanvas')
 const ctx = canvas.getContext('2d')
-const gridSize = canvas.width / 6;
-const gridWidth = 6;
-const gridHeight = 6;
+const gridWidth = 20;
+const gridHeight = 20;
+const gridSize = canvas.width / 20;
 let appleX, appleY;
 let simulatedSnakeX = 5 * gridSize;
 let simulatedSnakeY = 5 * gridSize;
@@ -59,3 +59,5 @@ if(createCollision(simulatedSnakeX,simulatedSnakeY)){
 
 generateApple();
 setInterval(gameLoop,200)
+
+
