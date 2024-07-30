@@ -21,3 +21,9 @@ body {
     align-items: center;
   border: 1px solid black;
 }
+
+.score-container {
+  display:flex;
+  gap: 400px;
+  
+}
