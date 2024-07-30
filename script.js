@@ -6,6 +6,22 @@ const gridHeight = 6;
 let appleX, appleY;
 let simulatedSnakeX = 5 * gridSize;
 let simulatedSnakeY = 5 * gridSize;
+let highScore = 0;
+let currentScore = 0;
+
+function setHighScore() {
+    const highScoreSpan = document.getElementById('hscore');
+    highScoreSpan.textContent = highScore
+};
+
+function setCurrentScore() {
+    const currentScoreSpan = document.getElementById('current-score');
+    currentScoreSpan.textContent = currentScore
+};
+
+
+
+
 
 function drawGrid() {
     for(let i = 0; i <= gridWidth; i++){
@@ -59,3 +75,6 @@ if(createCollision(simulatedSnakeX,simulatedSnakeY)){
 
 generateApple();
 setInterval(gameLoop,200)
+
+ setHighScore()
+ setCurrentScore()
