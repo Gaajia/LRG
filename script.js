@@ -65,11 +65,12 @@ if (createCollision(simulatedSnakeX, simulatedSnakeY)) {
 generateApple();
 setInterval(gameLoop, 200);
 
+
 document.addEventListener("keydown", function(event) {
-  if (event.key === "Enter") {
-   document.getElementById('btn').style.visibility = 'hidden';
-  }
-});
+    if (event.key === "Enter") {
+     document.getElementById('btn').style.visibility = 'hidden';
+    }
+  });
 
 setHighScore();
 setCurrentScore();
