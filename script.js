@@ -62,3 +62,4 @@ setInterval(gameLoop, 200);
 
 setHighScore();
 setCurrentScore();
+
