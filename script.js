@@ -13,8 +13,11 @@ let snakeBody = [{ x: simulatedSnakeX, y: simulatedSnakeY }];
 let veloX = 0, veloY = 0;
 let currentScore = 0;
 let highScore = 0;
+let gameStarted = false;
+let gameInterval;
 
 function resetGame() {
+    clearInterval(gameInterval)
     simulatedSnakeX = 1 * gridSize;
     simulatedSnakeY = 2 * gridSize;
     snakeBody = [{ x: simulatedSnakeX, y: simulatedSnakeY }];
@@ -23,6 +26,8 @@ function resetGame() {
     currentScore = 0;
     generateApple();
     setCurrentScore(currentScore);
+    document.getElementById('btn').style.visibility = 'visible';
+    gameStarted = false
 }
 
 // Draw the grid
@@ -39,6 +44,17 @@ function drawGrid() {
     ctx.strokeStyle = 'black';
     ctx.stroke();
 }
+
+// Enter button functionality
+document.addEventListener('keydown', function(event){
+    if(event.key === 'Enter' && !gameStarted) {
+        document.getElementById('btn').style.visibility = 'hidden';
+        gameInterval = setInterval(gameLoop, 300);
+        gameStarted = true
+        } else if (!gameStarted){
+            direction(event)
+        }
+    })
 
 // Generate a new apple position
 function generateApple() {
@@ -97,6 +113,7 @@ function createCollision(x, y) {
 
 // Handle keydown events to change direction
 const direction = (e) => {
+    if(gameStarted){
     if (e.key === "ArrowUp" && veloY !== 1) {
         veloX = 0;
         veloY = -1;
@@ -110,7 +127,8 @@ const direction = (e) => {
         veloX = 1;
         veloY = 0;
     }
-};
+    }
+}
 
 // Game loop function
 function gameLoop() {
