@@ -58,8 +58,14 @@ document.addEventListener('keydown', function(event){
 
 // Generate a new apple position
 function generateApple() {
-    appleX = Math.floor(Math.random() * gridWidth) * gridSize;
-    appleY = Math.floor(Math.random() * gridHeight) * gridSize;
+    let newAppleX, newAppleY;
+    do {
+        newAppleX = Math.floor(Math.random() * gridWidth) * gridSize;
+        newAppleY = Math.floor(Math.random() * gridHeight) * gridSize;
+    } while (snakeBody.some(segment => segment.x === newAppleX && segment.y === newAppleY));
+
+    appleX = newAppleX;
+    appleY = newAppleY;
 }
 
 // Draw the apple on the canvas
@@ -77,6 +83,7 @@ function drawSnake() {
 }
 
 // Change the snake's position based on velocity
+// the apple cannot generate on the snake trail. 
 function changeSnakePosition() {
     simulatedSnakeX += veloX * gridSize;
     simulatedSnakeY += veloY * gridSize;
@@ -92,6 +99,8 @@ function changeSnakePosition() {
     } else {
         snakeBody.pop(); // Remove the last segment to simulate movement
     }
+
+    
 }
 
 // Check for collisions
