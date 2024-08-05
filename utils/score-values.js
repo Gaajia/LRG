@@ -6,10 +6,7 @@ export function setHighScore() {
     highScoreSpan.textContent = highScore;
 }
 
-export function setCurrentScore() {
-    const currentScoreSpan = document.getElementById('current-score');
-    currentScoreSpan.textContent = currentScore;
-}
+
 
 // Export variables if you need them in other files
-export { highScore, currentScore };
+export { highScore, };

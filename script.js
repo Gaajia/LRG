@@ -1,4 +1,4 @@
-import { setHighScore, setCurrentScore } from "./utils/score-values.js";
+import { setHighScore } from "./utils/score-values.js";
 
 const canvas = document.getElementById('ourCanvas');
 const ctx = canvas.getContext('2d');
@@ -15,6 +15,11 @@ let currentScore = 0;
 let highScore = 0;
 let gameStarted = false;
 let gameInterval;
+
+export function setCurrentScore() {
+    const currentScoreSpan = document.getElementById('current-score');
+    currentScoreSpan.textContent = currentScore;
+}
 
 function resetGame() {
     clearInterval(gameInterval)
