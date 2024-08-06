@@ -1,4 +1,4 @@
-import { setHighScore } from "./utils/score-values.js";
+import { setHighScore, setCurrentScore, getHighScore } from "./utils/score-values.js";
 
 const canvas = document.getElementById('ourCanvas');
 const ctx = canvas.getContext('2d');
@@ -16,10 +16,7 @@ let highScore = 0;
 let gameStarted = false;
 let gameInterval;
 
-export function setCurrentScore() {
-    const currentScoreSpan = document.getElementById('current-score');
-    currentScoreSpan.textContent = currentScore;
-}
+
 
 function resetGame() {
     clearInterval(gameInterval)
@@ -98,6 +95,10 @@ function changeSnakePosition() {
     if (simulatedSnakeX === appleX && simulatedSnakeY === appleY) {
         currentScore++;
         setCurrentScore(currentScore);
+        if(currentScore > highScore) {
+            highScore = currentScore;
+            setHighScore(highScore);
+        }
         generateApple();
     } else {
         snakeBody.pop(); // Remove the last segment to simulate movement
@@ -165,5 +166,4 @@ setCurrentScore(currentScore);
 // Start the game loop
 setInterval(gameLoop, 200);
 
-setHighScore();
-setCurrentScore();
+;
