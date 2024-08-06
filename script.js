@@ -165,13 +165,5 @@ setCurrentScore(currentScore);
 // Start the game loop
 setInterval(gameLoop, 200);
 
-
-
-document.addEventListener("keydown", function(event) {
-    if (event.key === "Enter") {
-     document.getElementById('btn').style.visibility = 'hidden';
-    }
-  });
-
 setHighScore();
 setCurrentScore();
