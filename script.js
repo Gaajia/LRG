@@ -56,8 +56,6 @@ document.addEventListener('keydown', function(event){
         document.getElementById('btn').style.visibility = 'hidden';
         gameInterval = setInterval(gameLoop, 300);
         gameStarted = true
-        } else if (!gameStarted){
-            direction(event)
         }
     })
 
